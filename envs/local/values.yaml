@@ -1,0 +1,28 @@
+backend:
+  replicas: 2
+  image:
+    repository: tsamodocker2020/backend
+    tag: "dev"
+
+  service:
+    name: backend-service
+    port: 3000
+
+  env:
+    mysqlAddress: mysql-service
+
+  probes:
+    livenessPath: /health/liveness
+    readinessPath: /health/readiness
+
+frontend:
+  replicas: 2
+  image:
+    repository: tsamodocker2020/frontend
+    tag: "dev"
+  service:
+    name: frontend-service
+    port: 80
+ingress:
+  enabled: true
+  className: nginx

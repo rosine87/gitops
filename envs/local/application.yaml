@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8sakademy-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: <URL_DE_TON_REPO_GITHUB>
+    targetRevision: main
+    path: helm/three-tier
+    helm:
+      valueFiles:
+        - ../../gitops/envs/local/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: k8sakademy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
