@@ -2,7 +2,7 @@ backend:
   replicas: 2
   image:
     repository: tsamodocker2020/backend
-    tag: "dev"
+    tag: "1.1"
 
   service:
     name: backend-service
@@ -19,7 +19,7 @@ frontend:
   replicas: 2
   image:
     repository: tsamodocker2020/frontend
-    tag: "dev"
+    tag: "1.1"
   service:
     name: frontend-service
     port: 80
