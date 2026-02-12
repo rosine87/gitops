@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: <URL_DE_TON_REPO_GITHUB>
-    targetRevision: main
-    path: helm/three-tier
+    repoURL: https://github.com/rosine87/gitops.git
+    targetRevision: master
+    path: gitops/helm/three-tier
     helm:
       valueFiles:
-        - ../../gitops/envs/local/values.yaml
+        - ../../envs/local/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: k8sakademy
