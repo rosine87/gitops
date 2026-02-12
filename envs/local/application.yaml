@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/rosine87/gitops.git
     targetRevision: master
-    path: gitops/helm/three-tier
+    path: helm/three-tier
     helm:
       valueFiles:
         - ../../envs/local/values.yaml
